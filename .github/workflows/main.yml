@@ -28,17 +28,16 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt install -y network-manager
+          sudo apt install -y git dialog unzip xmlstarlet qemu-user-static network-manager
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           ip addr
-          nmcli device show \| grep 'IP4.DNS'
   
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: ip addr
+        run: sudo ./retropie_packages.sh image platform rpi4
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
