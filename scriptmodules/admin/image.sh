@@ -170,9 +170,9 @@ function _init_chroot_image() {
     # so we can resolve inside the chroot
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
-    cat $chroot/etc/hosts
-    sudo sed -i $chroot/etc/hosts -e "s/^127.0.0.1 localhost$/127.0.0.1 localhost $(hostname)/"
-    cat $chroot/etc/hosts
+    cat "$chroot/etc/hosts"
+    sudo sed -i "$chroot/etc/hosts" -e "s/^127.0.0.1 localhost$/127.0.0.1 localhost $(hostname)/"
+    cat "$chroot/etc/hosts"
 
     # move /etc/ld.so.preload out of the way to avoid warnings
     mv "$chroot/etc/ld.so.preload" "$chroot/etc/ld.so.preload.bak"
