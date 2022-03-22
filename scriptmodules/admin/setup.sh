@@ -609,7 +609,7 @@ function update_packages_gui_setup() {
 
 function basic_install_setup() {
     local id
-    for id in $(rp_getSectionIds core) $(rp_getSectionIds main); do
+    for id in $(rp_getSectionIds core) $(rp_getSectionIds main) $(rp_getSectionIds opt); do
         rp_installModule "$id"
     done
     return 0
