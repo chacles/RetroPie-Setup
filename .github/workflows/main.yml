@@ -34,7 +34,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           ip addr
-          nmcli device show
+          nmcli device show | grep IP4.DNS
   
       # Runs a single command using the runners shell
       - name: Run a one-line script
