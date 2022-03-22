@@ -170,7 +170,7 @@ function _init_chroot_image() {
     # so we can resolve inside the chroot
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
-    cat "$chroot/etc/hosts"
+    cat "$chroot/etc/hostname"
     sudo sed -i "$chroot/etc/hosts" -e "s/^127.0.0.1 localhost$/127.0.0.1 localhost $(hostname)/"
     cat "$chroot/etc/hosts"
 
