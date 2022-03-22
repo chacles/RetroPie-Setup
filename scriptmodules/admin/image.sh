@@ -168,6 +168,7 @@ function _init_chroot_image() {
     local nameserver="$__nameserver"
     [[ -z "$nameserver" ]] && nameserver="$(nmcli device show | grep IP4.DNS | awk '{print $NF; exit}')"
     # so we can resolve inside the chroot
+    nmcli device show
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
 
