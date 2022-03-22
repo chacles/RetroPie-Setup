@@ -168,9 +168,9 @@ function _init_chroot_image() {
     local nameserver="$__nameserver"
     [[ -z "$nameserver" ]] && nameserver="$(nmcli device show | grep IP4.DNS | awk '{print $NF; exit}')"
     # so we can resolve inside the chroot
-    nmcli device show
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
+    ping archive.raspberrypi.org
 
     # move /etc/ld.so.preload out of the way to avoid warnings
     mv "$chroot/etc/ld.so.preload" "$chroot/etc/ld.so.preload.bak"
