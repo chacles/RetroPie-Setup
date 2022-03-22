@@ -268,6 +268,14 @@ function configure_retroarch() {
 
     # (compat) keep all core options in a single file
     _set_config_option_retroarch "global_core_options" "true"
+    
+    _set_config_option_retroarch "video_smooth" "false"
+    _set_config_option_retroarch "menu_enable_widgets" "false"
+    
+    _set_config_option_retroarch "input_player1_analog_dpad_mode" "1"
+    _set_config_option_retroarch "input_player2_analog_dpad_mode" "1"
+    _set_config_option_retroarch "input_player3_analog_dpad_mode" "1"
+    _set_config_option_retroarch "input_player4_analog_dpad_mode" "1"
 
     # remapping hack for old 8bitdo firmware
     addAutoConf "8bitdo_hack" 0
