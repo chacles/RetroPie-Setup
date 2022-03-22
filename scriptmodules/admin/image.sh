@@ -170,7 +170,7 @@ function _init_chroot_image() {
     # so we can resolve inside the chroot
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
-    ping -c 4 archive.raspberrypi.org
+    cat /etc/hosts
 
     # move /etc/ld.so.preload out of the way to avoid warnings
     mv "$chroot/etc/ld.so.preload" "$chroot/etc/ld.so.preload.bak"
