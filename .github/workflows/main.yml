@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt install -y git dialog unzip xmlstarlet qemu-user-static
+          sudo apt install -y git dialog unzip xmlstarlet qemu-user-static network-manager
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
