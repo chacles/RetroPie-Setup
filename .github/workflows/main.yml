@@ -33,7 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo ip addr,
+          ip addr
           echo test, and deploy your project.
   
       # Runs a single command using the runners shell
