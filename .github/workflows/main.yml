@@ -26,7 +26,9 @@ jobs:
       - uses: actions/checkout@v2 
 
       - name: Install Dependencies
-        run: sudo apt install -y git dialog unzip xmlstarlet qemu-user-static
+        run: |
+          sudo apt-get update
+          sudo apt install -y git dialog unzip xmlstarlet qemu-user-static
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
