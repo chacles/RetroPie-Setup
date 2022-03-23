@@ -27,9 +27,9 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          apt update
-          apt dist-upgrade
-          apt install -y git dialog unzip xmlstarlet qemu-user-static network-manager
+          sudo apt update
+          sudo apt dist-upgrade
+          sudo apt install -y git dialog unzip xmlstarlet qemu-user-static network-manager
   
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -38,10 +38,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sed -i "$chroot/etc/hosts" -e "s/^127.0.0.1 localhost$/127.0.0.1	localhost $(hostname)/"
-          cat /etc/hosts
-          __nameserver=8.8.8.8 ./retropie_packages.sh image depends
-          __nameserver=8.8.8.8 ./retropie_packages.sh image platform rpi4 buster 1
+          sudo sed -i "$chroot/etc/hosts" -e "s/^127.0.1.1 localhost$/127.0.0.1	localhost $(hostname)/"
+          sudo cat /etc/hosts
+          sudo __nameserver=8.8.8.8 ./retropie_packages.sh image depends
+          sudo __nameserver=8.8.8.8 ./retropie_packages.sh image platform rpi4 buster 1
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
