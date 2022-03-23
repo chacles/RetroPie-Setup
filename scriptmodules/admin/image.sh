@@ -171,7 +171,7 @@ function _init_chroot_image() {
     echo "nameserver $nameserver"
     echo "nameserver $nameserver" >"$chroot/etc/resolv.conf"
     cat "$chroot/etc/hostname"
-    sudo sed -i "$chroot/etc/hosts" -e "s/^127.0.1.1$/127.0.0.1/"
+    sudo sed -i "$chroot/etc/hosts" -e "s/127.0.1.1/127.0.0.1/"
     cat "$chroot/etc/hosts"
 
     # move /etc/ld.so.preload out of the way to avoid warnings
